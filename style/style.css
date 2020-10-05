@@ -1,8 +1,8 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    border-collapse: collapse;
 }
 
 body {
@@ -49,8 +49,13 @@ form button:hover {
 
 .todo-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.todo-text-empty {
+    font-size: 1.5rem;
 }
 
 .todo-list {
@@ -68,24 +73,26 @@ form button:hover {
     align-items: center;
     transition: all .5s ease;
     border: 1px solid lightgrey;
+    position: relative;
 }
 
 .todo li {
     flex: 1;
 }
 
+.todo-item:focus,
 .todo-input:focus {
     outline:none;  
 }
 
 .trash-btn,
+.edit-btn,
 .complete-btn {
     color: #fff;
     border: none;
     padding: 1rem;
     cursor: pointer;
     font-size: 1rem;
-    border: 1px solid transparent;
     transition: all .5s ease;
 }
 
@@ -93,18 +100,22 @@ form button:hover {
     background: #18940d;
 }
 
-
 .trash-btn {
     background: #e21d1d;
 }
 
-.complete-btn:hover,
-.trash-btn:hover {
-    border: 1px solid black;
+.edit-btn {
+    background: #ffa600;
+}
+
+.editActive  {
+    transform: scale(1.2);
+    border: 1px solid white;
 }
 
 .complete-btn:hover .fa-check,
-.trash-btn:hover .fa-trash {
+.trash-btn:hover .fa-trash,
+.edit-btn:hover .fa-edit {
     transform: scale(1.5);
     transition: all .5s ease;
 }
@@ -113,10 +124,18 @@ form button:hover {
     padding: 0 .5rem;
 }
 
+.todo-item-number {
+    position: absolute;
+    left: -12%;
+}
+
 .fa-trash,
-.fa-check {
+.fa-check,
+.fa-edit {
     pointer-events: none;
-    transition: all .5s ease;
+    transition: all 1s ease;
+    opacity: 1;
+
 }
 
 .completed {
@@ -125,8 +144,9 @@ form button:hover {
 }
 
 .delete {
-    transform: translateX(-10rem) rotateZ(-30deg);
+    transform: translateX(-15rem);
     opacity: 0;
+    transition: all .5s ease;
 }
 
 select {

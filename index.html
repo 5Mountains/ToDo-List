@@ -12,12 +12,12 @@
     <body>
         
         <header>
-            <h1>ToDo list with LocalStorage</h1>
+            <h1>Your to-do list</h1>
         </header>
 
         <main>
             <form>
-                <input type="text" class="todo-input">
+                <input type="text" class="todo-input" placeholder="please enter your task">
                 <button class="todo-button" type="submit">
                     <i class="fas fa-plus-square"></i>
                 </button>
@@ -31,11 +31,12 @@
                 </div>
             </form>
             <div class="todo-container">
+                <p class="todo-text-empty">You have no any task yet</p>
                 <ul class="todo-list"></ul>
             </div>
         </main>
 
-        <script src="/script/script.js"></script>
+        <script src="/js/main.js"></script>
     </body>
 
 </html>
