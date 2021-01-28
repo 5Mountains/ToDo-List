@@ -15,7 +15,6 @@ checkEmptyList();
 function executeTodo(e) {
     const item = e.target;
     let todo = item.parentElement;
-    
 
     if(item.classList[0] === 'complete-btn') {
         todo.firstChild.classList.add('completed');
@@ -111,7 +110,7 @@ function newTodo(e) {
 }
 
 function filterTodo(e) {
-    todoList.childNodes;
+    let todos = todoList.childNodes;
     todos.forEach((todo) => {
         switch(e.target.value) {
             case "all":
@@ -140,5 +139,7 @@ function fromLocal() {
 }
 
 function checkEmptyList() {
-    (todoList.children.length > 0) ? todoTextEmpty.style.display = 'none' : todoTextEmpty.style.display = 'block';
+    (todoList.children.length > 0) 
+        ? todoTextEmpty.style.display = 'none' 
+        : todoTextEmpty.style.display = 'block';
 }
